@@ -4,21 +4,11 @@ interface A {
         float L = 0f;
         for (int Y = 2016; L < 1e6; Y++) {
             L = Rn;
-            float I, A, Opct, r, P;
-            if (Y >= 2029) {
-                I = 2e4f;
-            } else {
-                I = 1e4f;
-            }
+            float I, Opct, r, P;
+            I = 1e4f * (Y >= 2029 ? 2 : 1);
             Opct = I * 0.1100f;
-            if (L > 2e5) {
-                A = 0;
-            } else {
-                A = 1000;
-            }
-            float X = L + I - Opct - A;
-            float Z = 0.01f * X;
-            Rn = X + 0.847f * Z;
+            float X = L + I - Opct - (L > 2e5 ? 0 : 1000);
+            Rn = 1.00847f * X;
             System.out.format("%d	%f\n", Y, L);
        }
     }
