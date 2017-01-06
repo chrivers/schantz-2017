@@ -18,3 +18,6 @@ check04:
 check05:
 	@javac 2017-05.java
 	@./comp.py <(java A)
+check06:
+	@javac 2017-06.java
+	@./comp.py <(java A)
