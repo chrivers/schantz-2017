@@ -2,6 +2,8 @@
 
 import sys
 import fileinput
+from colorama import init as colorama_init, Fore, Back, Style
+colorama_init()
 
 REFERENCE = "santas-pension-projection.txt"
 
@@ -11,6 +13,12 @@ def parse(fd):
         year, amount = line.rstrip().split("\t")
         vals.append((float(year), float(amount)))
     return vals
+
+def check(res):
+    if res:
+        return "%sOK%s" % (Style.BRIGHT + Fore.GREEN, Style.RESET_ALL)
+    else:
+        return "%sFAIL%s" % (Style.BRIGHT + Fore.RED, Style.RESET_ALL)
 
 refs = parse(open(REFERENCE))
 comp = parse(fileinput.input())
@@ -30,10 +38,7 @@ for i, ref in enumerate(zip(refs, comp)):
 
 print("-"*80)
 max_err_level = 0.1
-if len(refs) != len(comp):
-    print("Wrong number of values (%d actual vs %d expected)" % (len(comp), len(refs)))
-else:
-    print("Correct number of values")
+print("Number of values [%d == %d] [%s]" % (len(comp), len(refs), check(len(comp) == len(refs))))
 print("max error: %.4f%%" % max_err)
 print("error level: %.2f%%" % (abs(max_err / max_err_level) * 100))
 print("-"*80)
