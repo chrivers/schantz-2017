@@ -21,3 +21,4 @@ check05:
 check06:
 	@javac 2017-06.java
 	@./comp.py <(java A)
+	@./size.py 2017-06.java
