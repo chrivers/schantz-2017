@@ -17,9 +17,9 @@ comp = parse(fileinput.input())
 
 max_err = 0
 
-for i, ref in enumerate(refs if len(refs) >= len(comp) else comp):
-    ref_year, ref_val = ref
-    cmp_year, cmp_val = comp[i]
+for i, ref in enumerate(zip(refs, comp)):
+    ref_year, ref_val = ref[0]
+    cmp_year, cmp_val = ref[1]
     diff = ref_val - cmp_val
     if diff == 0.0:
         desc = 0.0
