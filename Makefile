@@ -4,7 +4,7 @@ clean:
 	@rm -fv *.class(N) *~(N)
 
 sizes:
-	@./size.py 2017-??.java
+	@./size.py 2017-*.java
 
 check01:
 	@javac 2017-01.java
