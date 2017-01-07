@@ -40,5 +40,5 @@ print("-"*80)
 max_err_level = 0.1
 print("Number of values [%d == %d] [%s]" % (len(comp), len(refs), check(len(comp) == len(refs))))
 print("max error: %.4f%%" % max_err)
-print("error level: %.2f%%" % (abs(max_err / max_err_level) * 100))
+print("error level: %.2f%% [%s]" % (abs(max_err / max_err_level) * 100, check(abs(max_err) < max_err_level)))
 print("-"*80)
