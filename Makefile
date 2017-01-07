@@ -1,10 +1,10 @@
 SHELL=zsh
 
 clean:
-	@rm -fv *.class(N) *~(N)
+	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__
 
 sizes:
-	@./size.py 2017-*.java
+	@./size.py 2017-*.(java|cs)
 
 check01:
 	@javac 2017-01.java
@@ -30,3 +30,7 @@ check06:
 	@javac 2017-06.java
 	@./comp.py <(java A)
 	@./size.py 2017-06.java
+check07:
+	@mcs 2017-07.cs
+	@./comp.py <(./2017-07.exe)
+	@./size.py 2017-07.cs
