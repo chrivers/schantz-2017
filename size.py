@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import minify
 
 def strip_whitespace(text):
     return text \
@@ -20,4 +21,4 @@ for filename in filenames:
     text = open(filename).read().strip()
     text2 = strip_whitespace(text)
 
-    print("%s: %6d total, %6d whitespace, %6d non-whitespace (%6d estimated real)" % (filename, len(text), len(text)-len(text2), len(text2), len(text2) + 5))
+    print("%-15s: %6d total, %6d whitespace, %6d non-whitespace (%6d minified)" % (filename, len(text), len(text)-len(text2), len(text2), len(minify.minify(text))))
