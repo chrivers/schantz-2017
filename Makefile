@@ -34,3 +34,6 @@ check07:
 	@mcs 2017-07.cs
 	@./comp.py <(./2017-07.exe)
 	@./size.py 2017-07.cs
+check08:
+	@./comp.py <(csharp ./2017-08.cs)
+	@./size.py 2017-08.cs
