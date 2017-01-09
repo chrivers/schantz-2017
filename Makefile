@@ -1,7 +1,7 @@
 SHELL=zsh
 
 clean:
-	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__
+	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__ 2017-09.gc2
 
 sizes:
 	@./size.py 2017-*.(java|cs|gc2)
