@@ -45,7 +45,10 @@ for i, ref in enumerate(zip(refs, comp)):
     else:
         num_good = 10
         num_bad = (abs(desc) - max_err_level) / max_err_level * 10
-    bar = color_result("*" * int(num_good), True) + color_result("*" * int(num_bad), False)
+    if num_bad < 20:
+        bar = color_result("*" * int(num_good), True) + color_result("*" * int(num_bad), False)
+    else:
+        bar = color_result("X" * 20, False)
     print("%d: %12.4f vs ref %12.4f: diff %12.4f (%s error)%s" % (2016 + i, cmp_val, ref_val, diff, color_result("%8.4f%%" % -desc, abs(desc) < max_err_level), bar))
 
 print("-"*80)
