@@ -3,14 +3,12 @@
 ##   - Christian Iversen <ci@iversenit.dk>
 16 71 crange
 
-m:
+{
   save-c
   2000 +
   "	"
   push-b
   new-line
-  4 extract-array
-  unwords
 
     # (Y / 35 * 1024) + 8864
     push-c 35 /
@@ -29,7 +27,7 @@ m:
     # x += x / 118
     dup 118 / +
     pop-b
-
+} each
 # print "20%d\t%s" % (Y, X)
 # if Y > 28:
 #     X += (Y / 35 * 1024) + 8864
