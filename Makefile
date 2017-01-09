@@ -37,3 +37,7 @@ check07:
 check08:
 	@./comp.py <(csharp ./2017-08.cs)
 	@./size.py 2017-08.cs
+check09:
+	@(cd ./gs2 && ./gs2c.py < ../2017-09.gs2 > ../2017-09.gc2)
+	@./comp.py <(./gs2/gs2.py 2017-09.gc2)
+	@./size.py 2017-09.gc2

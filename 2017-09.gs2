@@ -1,0 +1,20 @@
+2016 2038 crange
+{
+  "	"
+  push-b
+  new-line
+  4 extract-array
+
+    push-b 7904 +
+    dup 118 /
+    +
+    pop-b
+} map
+
+unwords map1
+
+# X += Y > 28 ?
+#    524 + Y / 35 * 32 << 5
+#    7904
+# x += x / 118
+
