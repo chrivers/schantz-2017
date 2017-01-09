@@ -14,11 +14,11 @@ def parse(fd):
         vals.append((float(year), float(amount)))
     return vals
 
+def color_result(text, cond, ok_color=Style.BRIGHT + Fore.GREEN, fail_color=Style.BRIGHT + Fore.RED, reset_color=Style.RESET_ALL):
+    return "%s%s%s" % (ok_color if cond else fail_color, text, reset_color)
+
 def check(res):
-    if res:
-        return "%sOK%s" % (Style.BRIGHT + Fore.GREEN, Style.RESET_ALL)
-    else:
-        return "%sFAIL%s" % (Style.BRIGHT + Fore.RED, Style.RESET_ALL)
+    return color_result("OK" if res else "FAIL", res)
 
 refs = parse(open(REFERENCE))
 comp = parse(fileinput.input())
