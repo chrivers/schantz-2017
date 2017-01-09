@@ -4,7 +4,7 @@ clean:
 	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__
 
 sizes:
-	@./size.py 2017-*.(java|cs)
+	@./size.py 2017-*.(java|cs|gc2)
 
 check01:
 	@javac 2017-01.java
