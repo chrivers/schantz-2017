@@ -38,7 +38,7 @@ for i, ref in enumerate(zip(refs, comp)):
     else:
         desc = diff / ref_val * 100.0
     max_err = max(max_err, abs(desc))
-    print("%d: %12.4f vs ref %12.4f: diff %12.4f (%8.4f%% error)" % (2016 + i, cmp_val, ref_val, diff, desc))
+    print("%d: %12.4f vs ref %12.4f: diff %12.4f (%8.4f%% error)" % (2016 + i, cmp_val, ref_val, diff, -desc))
 
 print("-"*80)
 max_err_level = 0.1
