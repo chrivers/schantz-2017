@@ -26,6 +26,7 @@ comp = parse(fileinput.input())
 max_err = 0
 
 wrong_years = 0
+max_err_level = 0.1
 
 for i, ref in enumerate(zip(refs, comp)):
     ref_year, ref_val = ref[0]
@@ -38,10 +39,9 @@ for i, ref in enumerate(zip(refs, comp)):
     else:
         desc = diff / ref_val * 100.0
     max_err = max(max_err, abs(desc))
-    print("%d: %12.4f vs ref %12.4f: diff %12.4f (%8.4f%% error)" % (2016 + i, cmp_val, ref_val, diff, -desc))
+    print("%d: %12.4f vs ref %12.4f: diff %12.4f (%s error)" % (2016 + i, cmp_val, ref_val, diff, color_result("%8.4f%%" % -desc, abs(desc) < max_err_level)))
 
 print("-"*80)
-max_err_level = 0.1
 print("Number of incorrect years [%d] [%s]" % (wrong_years, check(wrong_years == 0)))
 print("Number of values [%d == %d] [%s]" % (len(comp), len(refs), check(len(comp) == len(refs))))
 print("max error: %.4f%%" % max_err)
