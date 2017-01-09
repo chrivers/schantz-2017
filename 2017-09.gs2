@@ -6,7 +6,7 @@
 {
   save-c
   1000 double +
-  "	"
+  "\x09"
   push-b
   new-line
 
