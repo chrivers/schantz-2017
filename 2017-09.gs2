@@ -1,3 +1,6 @@
+## Schantz New Year's Coding Challenge 2017
+## GolfScript2 version
+##   - Christian Iversen <ci@iversenit.dk>
 16 71 crange
 {
   save-c
