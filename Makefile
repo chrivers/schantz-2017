@@ -41,3 +41,11 @@ check09:
 	@(cd ./gs2 && ./gs2c.py < ../2017-09.gs2 > ../2017-09.gc2)
 	@./comp.py <(./gs2/gs2.py 2017-09.gc2)
 	@./size.py 2017-09.gc2
+check10:
+	@./comp.py <(./2017-10.py)
+	@./size.py 2017-10.py
+check11:
+	@bsh ./2017-11.java > 2017-11.output
+	@./comp.py 2017-11.output
+	@rm -f 2017-11.output
+	@./size.py 2017-11.java
