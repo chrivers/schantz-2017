@@ -3,21 +3,21 @@
 ##   - Christian Iversen <ci@iversenit.dk>
 16 71 crange
 
-{
-  1000 double +
+m:
+  1000 double + show
   "\x09"
-  push-b
+  push-b show
   new-line
 
     1000
     # Y > 34 ? 1000 : 0
-    @0 34 gt inc *
+    @2 34 gt inc *
 
     # Y += 8900
     7900 +
 
     # Y > 28 ? last : 0
-    @7 28 gt *
+    @5 28 gt *
 
     # x += 7900
     @5 +
@@ -28,7 +28,7 @@
     # x += x / 118
     dup 118 / +
     pop-b
-} each
+
 # print "20%d\t%s" % (Y, X)
 # if Y > 28:
 #     X += (Y / 35 * 1024) + 8864
