@@ -12,13 +12,13 @@
 
     1000
     # Y > 34 ? 1000 : 0
-    push-c 34 gt *
+    34 push-c lt *
 
     # Y += 8900
     8900 +
 
     # Y > 28 ? last : 0
-    push-c 28 gt *
+    28 push-c lt *
 
     # x += 7900
     7900 +
