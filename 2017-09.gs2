@@ -5,7 +5,7 @@
 
 m:
   1000 double + show
-  "\x09"
+  9
   push-b show
   new-line
 
