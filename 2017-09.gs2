@@ -4,7 +4,6 @@
 16 71 crange
 
 {
-  save-c
   1000 double +
   "\x09"
   push-b
@@ -12,13 +11,13 @@
 
     1000
     # Y > 34 ? 1000 : 0
-    push-c 34 gt inc *
+    @0 34 gt inc *
 
     # Y += 8900
     7900 +
 
     # Y > 28 ? last : 0
-    push-c 28 gt *
+    @7 28 gt *
 
     # x += 7900
     @5 +
