@@ -1,7 +1,7 @@
 SHELL=zsh
 
 clean:
-	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__ 2017-09.gc2 2017-*.txt(N)
+	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__ 2017-*.txt(N)
 
 A.class:
 	@javac 2017-01.java
@@ -17,8 +17,8 @@ F.class:
 	@javac 2017-06.java
 2017-07.exe:
 	@mcs 2017-07.cs
-2017-09.gc2:
-	@cd ./gs2 && ./gs2c.py < ../2017-09.gs2 > ../2017-09.gc2
+2017-09.gs2:
+	@cd ./gs2 && ./gs2c.py < ../2017-09.gs2s > ../2017-09.gs2
 
 compile01: A.class
 compile02: B.class
@@ -28,7 +28,7 @@ compile05: E.class
 compile06: F.class
 compile07: 2017-07.exe
 compile08:
-compile09: 2017-09.gc2
+compile09: 2017-09.gs2
 compile10:
 compile11:
 compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11
@@ -50,7 +50,7 @@ run07: compile07
 run08: compile08
 	@csharp ./2017-08.cs > 2017-08.txt
 run09: compile09
-	@cd gs2 && ./gs2.py ../2017-09.gc2 > ../2017-09.txt
+	@cd gs2 && ./gs2.py ../2017-09.gs2 > ../2017-09.txt
 run10: compile10
 	@./2017-10.py > 2017-10.txt
 run11: compile11
@@ -98,13 +98,13 @@ size07:
 size08:
 	@./size.py 2017-08.cs
 size09:
-	@./size.py 2017-09.gc2
+	@./size.py 2017-09.gs2
 size10:
 	@./size.py 2017-10.py
 size11:
 	@./size.py 2017-11.java
 size: compile09
-	@./size.py 2017-*.(java|cs|gc2|py)
+	@./size.py 2017-*.(java|cs|gs2|py)
 
 check01: compile01 run01 comp01 size01
 check02: compile02 run02 comp02 size02
