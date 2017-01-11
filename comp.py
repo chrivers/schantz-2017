@@ -34,10 +34,8 @@ for i, ref in enumerate(zip(refs, comp)):
     diff = ref_val - cmp_val
     if ref_year != cmp_year:
         wrong_years += 1
-    if diff == 0.0 or ref_val == 0.0:
-        desc = 0.0
-    else:
-        desc = diff / ref_val * 100.0
+    desc = diff / (ref_val or 1) * 100.0
+
     max_err = max(max_err, abs(desc))
     if abs(desc) < max_err_level:
         num_good = abs(desc) / max_err_level * 10
