@@ -31,23 +31,41 @@ max_err = 0
 wrong_years = 0
 max_err_level = 0.1
 
+def clamp(_min, x, _max):
+    return max(_min, min(x, _max))
+
+def error_bar(value, max_value, ok_color=Style.BRIGHT + Fore.GREEN, fail_color=Style.BRIGHT + Fore.RED, reset_color=Style.RESET_ALL, width=10):
+    pct = -value / max_value
+
+    color = ok_color if abs(value) <= abs(max_value) else fail_color
+    return "|%s%10s%s|%s%10s%s|%s%-10s%s|%s%10s%s|" % (
+        color, "X" * int(-clamp(-1, pct + 1, 0) * width), reset_color,
+        color,   "*" * int(-clamp(-1, pct,     0) * width), reset_color,
+        color,   "*" * int( clamp( 0, pct,     1) * width), reset_color,
+        color, "X" * int( clamp( 0, pct - 1, 1) * width), reset_color,
+    )
+
 for i, ref in enumerate(zip(refs, comp)):
     ref_year, ref_val = ref[0]
     cmp_year, cmp_val = ref[1]
     diff = ref_val - cmp_val
     if ref_year != cmp_year:
         wrong_years += 1
-    desc = diff / (ref_val or 1) * 100.0
+    err = diff / (ref_val or 1) * 100.0
 
-    max_err = max(max_err, abs(desc))
-
-    num_good = min(abs(desc) / max_err_level * 10, 10)
-    num_bad = (abs(desc) - max_err_level) / max_err_level * 10
-    if num_bad < 20:
-        bar = color_result("*" * int(num_good), True) + color_result("*" * int(num_bad), False)
-    else:
-        bar = color_result("X" * 20, False)
-    print("%d: %12.4f vs ref %12.4f: diff %12.4f (%s error)%s" % (2016 + i, cmp_val, ref_val, diff, color_result("%8.4f%%" % -desc, abs(desc) < max_err_level), bar))
+    max_err = max(max_err, abs(err))
+    bar = error_bar(err, max_err_level)
+    print(
+        "%d: %12.4f vs ref %12.4f: diff %12.4f (%s error) %s" %
+        (
+            2016 + i,
+            cmp_val,
+            ref_val,
+            diff,
+            color_result("%8.3f%%" % -(err / max_err_level * 100.0), abs(err) < max_err_level),
+            bar
+        )
+    )
 
 print("-"*80)
 print("Number of incorrect years [%d] [%s]" % (wrong_years, check(wrong_years == 0)))
