@@ -3,9 +3,6 @@ SHELL=zsh
 clean:
 	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__ 2017-09.gc2 2017-*.txt(N)
 
-sizes: compile09
-	@./size.py 2017-*.(java|cs|gc2|py)
-
 A.class:
 	@javac 2017-01.java
 B.class:
@@ -34,6 +31,7 @@ compile08:
 compile09: 2017-09.gc2
 compile10:
 compile11:
+compiles: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -103,6 +101,8 @@ size10:
 	@./size.py 2017-10.py
 size11:
 	@./size.py 2017-11.java
+sizes: compile09
+	@./size.py 2017-*.(java|cs|gc2|py)
 
 check01: compile01 run01 comp01 size01
 check02: compile02 run02 comp02 size02
