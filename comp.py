@@ -37,12 +37,9 @@ for i, ref in enumerate(zip(refs, comp)):
     desc = diff / (ref_val or 1) * 100.0
 
     max_err = max(max_err, abs(desc))
-    if abs(desc) < max_err_level:
-        num_good = abs(desc) / max_err_level * 10
-        num_bad  = 0
-    else:
-        num_good = 10
-        num_bad = (abs(desc) - max_err_level) / max_err_level * 10
+
+    num_good = min(abs(desc) / max_err_level * 10, 10)
+    num_bad = (abs(desc) - max_err_level) / max_err_level * 10
     if num_bad < 20:
         bar = color_result("*" * int(num_good), True) + color_result("*" * int(num_bad), False)
     else:
