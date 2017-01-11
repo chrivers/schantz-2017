@@ -1,4 +1,4 @@
-interface A {
+interface F {
     static void main(String[]a) {
         for (
             int Y = 15, X = 0;

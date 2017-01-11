@@ -1,4 +1,4 @@
-interface A {
+interface B {
     static void main(String[]a) {
         float Rn = 0.0f;
         float Rn_last = 0.0f;

@@ -1,4 +1,4 @@
-interface A {
+interface D {
     static void main(String[]a) {
         float Y = 16, X = 0;
         while (Y++ < 71) {
