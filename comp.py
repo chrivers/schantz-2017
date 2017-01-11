@@ -14,8 +14,11 @@ def parse(fd):
         vals.append((float(year), float(amount)))
     return vals
 
+def color(text, color, reset_color=Style.RESET_ALL):
+    return "%s%s%s" % (color, text, reset_color)
+
 def color_result(text, cond, ok_color=Style.BRIGHT + Fore.GREEN, fail_color=Style.BRIGHT + Fore.RED, reset_color=Style.RESET_ALL):
-    return "%s%s%s" % (ok_color if cond else fail_color, text, reset_color)
+    return color(text, ok_color if cond else fail_color, reset_color)
 
 def check(res):
     return color_result("OK" if res else "FAIL", res)
