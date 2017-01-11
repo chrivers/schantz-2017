@@ -31,7 +31,7 @@ compile08:
 compile09: 2017-09.gc2
 compile10:
 compile11:
-compiles: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11
+compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -55,6 +55,7 @@ run10: compile10
 	@./2017-10.py > 2017-10.txt
 run11: compile11
 	@bsh ./2017-11.java > 2017-11.txt
+run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11
 
 comp01:
 	@./comp.py 2017-01.txt
@@ -78,6 +79,7 @@ comp10:
 	@./comp.py 2017-10.txt
 comp11:
 	@./comp.py 2017-11.txt
+comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11
 
 size01:
 	@./size.py 2017-01.java
@@ -101,7 +103,7 @@ size10:
 	@./size.py 2017-10.py
 size11:
 	@./size.py 2017-11.java
-sizes: compile09
+size: compile09
 	@./size.py 2017-*.(java|cs|gc2|py)
 
 check01: compile01 run01 comp01 size01
