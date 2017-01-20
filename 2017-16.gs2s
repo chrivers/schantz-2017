@@ -10,18 +10,18 @@ m:
   new-line
 
     # ycmp1 = int(Y > 34)
-    @2 34 gt pop-c
+    @2 34 gt
 
     # ycmp2 = int(Y > 28)
-    @1 28 gt pop-d
+    @0 28 gt
 
     # 1000 * (ycmp2 + ycmp1)
-    push-c push-d + 1000 *
+    + 1000 *
 
     push-b +
 
     # X += A + 7900 * (ycmp2 + 1)
-    push-d inc 7900 * +
+    @5 inc 7900 * +
 
     # x += x / 118
     dup 118 / +
