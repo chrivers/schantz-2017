@@ -1,25 +1,23 @@
 ## Schantz New Year's Coding Challenge 2017
 ## GolfScript2 version
 ##   - Christian Iversen <ci@iversenit.dk>
-16 71 crange
+-13 42 crange
 
 m:
-  1000 double + show
+  2029 + show
   9
   push-b show
   new-line
 
     # c = cmp((Y - 29) / 6, 0) + 1
-    @2 29 -
-      6 /
+    @2 6 /
       sign inc
 
     1000 *
 
     @0
       sign inc
-      7900
-    *
+      7900 *
 
     # A = 1000 * c
     +
