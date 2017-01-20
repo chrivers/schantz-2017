@@ -3,7 +3,8 @@
 import sys
 import fileinput
 from colorama import init as colorama_init, Fore, Back, Style
-colorama_init()
+# always colorize output
+colorama_init(strip=False)
 
 REFERENCE = "santas-pension-projection.txt"
 
