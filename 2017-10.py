@@ -8,9 +8,9 @@ def log(x, *args):
 X = 0
 for Y in range(16, 71):
     print "20%d\t%s" % (Y, X)
-    ycmp1 = int(Y > 34)
-    ycmp2 = int(Y > 28)
-    A = 1000 * (ycmp2 + ycmp1)
-    log("%4d: ycmp1=%d ycmp2=%d, A=%d", Y + 2000, ycmp1, ycmp2, A)
-    X += A + 7900 * (ycmp2+1)
+    c = cmp((Y - 29) / 6, 0) + 1
+    A = 1000 * c
+    log("%4d: c %d | A %4d", Y + 2000, c, A)
+    X += A
+    X += 7900 * (cmp(c, 0)+1)
     X += X / 118
