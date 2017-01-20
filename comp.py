@@ -38,10 +38,10 @@ def error_bar(value, max_value, ok_color=Style.BRIGHT + Fore.GREEN, fail_color=S
     pct = -value / max_value
 
     color = ok_color if abs(value) <= abs(max_value) else fail_color
-    return "|%s%10s%s|%s%10s%s|%s%-10s%s|%s%10s%s|" % (
+    return "|%s%10s%s|%s%10s%s|%s%-10s%s|%s%-10s%s|" % (
         color, "X" * int(-clamp(-1, pct + 1, 0) * width), reset_color,
-        color,   "*" * int(-clamp(-1, pct,     0) * width), reset_color,
-        color,   "*" * int( clamp( 0, pct,     1) * width), reset_color,
+        color, "*" * int(-clamp(-1, pct,     0) * width), reset_color,
+        color, "*" * int( clamp( 0, pct,     1) * width), reset_color,
         color, "X" * int( clamp( 0, pct - 1, 1) * width), reset_color,
     )
 
