@@ -8,20 +8,16 @@ m:
   9
   push-b show
   new-line
+    # c = cmp((Y - 29) / 6, 0) + 1
 
-    # ycmp1 = int(Y > 34)
-    @2 34 gt
+    @2 29 - 6 / sign inc dup
 
-    # ycmp2 = int(Y > 28)
-    @0 28 gt
+    sign inc 7900 * swap
 
-    # 1000 * (ycmp2 + ycmp1)
-    + 1000 *
+    # A = 1000 * c
+    1000 * +
 
     push-b +
-
-    # X += A + 7900 * (ycmp2 + 1)
-    @5 inc 7900 * +
 
     # x += x / 118
     dup 118 / +
