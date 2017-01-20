@@ -1,0 +1,40 @@
+1d    # 16
+01 47 # 71
+4f    # crange()
+
+fe    # m:
+
+# presentation
+1c 2a 30 52 # 1000 double + show
+19          # 9
+d1 52       # push-b show
+0a          # \n
+
+# calculation
+1c       # 1000
+a2       # @2
+01 22    # 34
+72       # >
+27       # inc
+32       # *
+
+02 dc 1e # 7900
+30       # +
+
+a5       # @5
+01 1c    # 28
+72       # >
+32       # *
+
+a5       # @5
+30       # +
+
+d1       # push-b
+30       # +
+
+40       # dup
+01 76    # 118
+33       # /
+30       # +
+
+cd       # put-b
