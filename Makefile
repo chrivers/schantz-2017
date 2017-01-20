@@ -33,7 +33,9 @@ compile10:
 compile11:
 compile12:
 compile13:
-compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13
+compile14:
+compile15:
+compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -61,7 +63,11 @@ run12: compile12
 	@groovy ./2017-12.groovy > 2017-12.txt
 run13: compile13
 	@groovy ./2017-13.groovy > 2017-13.txt
-run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13
+run14: compile14
+	@groovy ./2017-14.groovy > 2017-14.txt
+run15: compile15
+	@groovy ./2017-15.groovy > 2017-15.txt
+run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15
 
 comp01:
 	@./comp.py 2017-01.txt
@@ -89,7 +95,11 @@ comp12:
 	@./comp.py 2017-12.txt
 comp13:
 	@./comp.py 2017-13.txt
-comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13
+comp14:
+	@./comp.py 2017-14.txt
+comp15:
+	@./comp.py 2017-15.txt
+comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15
 
 size01:
 	@./size.py 2017-01.java
@@ -117,6 +127,10 @@ size12:
 	@./size.py 2017-12.groovy
 size13:
 	@./size.py 2017-13.groovy
+size14:
+	@./size.py 2017-14.groovy
+size15:
+	@./size.py 2017-15.groovy
 size: compile09
 	@./size.py 2017-*.(java|cs|gs2|py|groovy)
 
@@ -133,3 +147,5 @@ check10: compile10 run10 comp10 size10
 check11: compile11 run11 comp11 size11
 check12: compile12 run12 comp12 size12
 check13: compile13 run13 comp13 size13
+check14: compile14 run14 comp14 size14
+check15: compile15 run15 comp15 size15
