@@ -2,19 +2,19 @@
 ## GolfScript2 version
 ##   - Christian Iversen <ci@iversenit.dk>
 
-16 71 crange
 79 itemize 13 *
 168 itemize  6 * +
 178 itemize 36 * +
-zip
 
 m:
-  head
-  1000 double +
-  show
+  pop-c
+  counter 2015 + show
   9
   push-b show
-  push-b @5 last 100 * +
+  new-line
+
+  push-b
+  push-c 100 *
+  +
   dup 118 / +
   pop-b
-  new-line
