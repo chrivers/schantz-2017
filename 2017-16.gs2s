@@ -8,14 +8,21 @@ m:
   9
   push-b show
   new-line
+
     # c = cmp((Y - 29) / 6, 0) + 1
+    @2 29 -
+      6 /
+      sign inc
 
-    @2 29 - 6 / sign inc dup
+    1000 *
 
-    sign inc 7900 * swap
+    @0
+      sign inc
+      7900
+    *
 
     # A = 1000 * c
-    1000 * +
+    +
 
     push-b +
 
