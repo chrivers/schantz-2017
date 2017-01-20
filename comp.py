@@ -6,6 +6,10 @@ from colorama import init as colorama_init, Fore, Back, Style
 # always colorize output
 colorama_init(strip=False)
 
+# Avoid BrokenPipeError on ctrl+c, etc
+from signal import signal, SIGPIPE, SIG_DFL
+signal(SIGPIPE,SIG_DFL)
+
 REFERENCE = "santas-pension-projection.txt"
 
 def parse(fd):
