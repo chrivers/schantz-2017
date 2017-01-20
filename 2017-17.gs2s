@@ -2,9 +2,9 @@
 ## GolfScript2 version
 ##   - Christian Iversen <ci@iversenit.dk>
 
-79 itemize 13 *
-168 itemize  6 * +
-178 itemize 36 * +
+"\x4f\xa8\xb2"
+"\x1a\x0c\x48" half m1
+compress
 
 m:
   pop-c
