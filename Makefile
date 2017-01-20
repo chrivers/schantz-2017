@@ -21,6 +21,8 @@ F.class:
 	@cd ./gs2 && ./gs2c.py < ../2017-09.gs2s > ../2017-09.gs2
 2017-16.gs2: 2017-16.gs2s
 	@cd ./gs2 && ./gs2c.py < ../2017-16.gs2s > ../2017-16.gs2
+2017-17.gs2: 2017-17.gs2s
+	@cd ./gs2 && ./gs2c.py < ../2017-17.gs2s > ../2017-17.gs2
 
 compile01: A.class
 compile02: B.class
@@ -38,7 +40,8 @@ compile13:
 compile14:
 compile15:
 compile16: 2017-16.gs2
-compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16
+compile17: 2017-17.gs2
+compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16 compile17
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -72,7 +75,9 @@ run15: compile15
 	@groovy ./2017-15.groovy > 2017-15.txt
 run16: compile16
 	@cd gs2 && ./gs2.py ../2017-16.gs2 > ../2017-16.txt
-run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16
+run17: compile17
+	@cd gs2 && ./gs2.py ../2017-17.gs2 > ../2017-17.txt
+run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16 run17
 
 comp01:
 	@./comp.py 2017-01.txt
@@ -106,7 +111,9 @@ comp15:
 	@./comp.py 2017-15.txt
 comp16:
 	@./comp.py 2017-16.txt
-comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16
+comp17:
+	@./comp.py 2017-17.txt
+comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16 comp17
 
 size01:
 	@./size.py 2017-01.java
@@ -140,7 +147,9 @@ size15:
 	@./size.py 2017-15.groovy
 size16:
 	@./size.py 2017-16.gs2
-size: compile09 compile16
+size17:
+	@./size.py 2017-17.gs2
+size: compile09 compile16 compile17
 	@./size.py 2017-*.(java|cs|gs2|py|groovy)
 
 check01: compile01 run01 comp01 size01
@@ -159,3 +168,4 @@ check13: compile13 run13 comp13 size13
 check14: compile14 run14 comp14 size14
 check15: compile15 run15 comp15 size15
 check16: compile16 run16 comp16 size16
+check17: compile17 run17 comp17 size17

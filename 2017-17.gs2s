@@ -1,0 +1,20 @@
+## Schantz New Year's Coding Challenge 2017
+## GolfScript2 version
+##   - Christian Iversen <ci@iversenit.dk>
+
+16 71 crange
+empty-list  7900 + 13 *
+empty-list 16800 +  6 * +
+empty-list 17800 + 36 * + 
+zip
+
+m:
+  head
+  1000 double +
+  show
+  9
+  push-b show
+  push-b @5 last +
+  dup 118 / +
+  pop-b
+  new-line
