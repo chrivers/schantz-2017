@@ -35,7 +35,7 @@ def clamp(_min, x, _max):
     return max(_min, min(x, _max))
 
 def error_bar(value, max_value, ok_color=Style.BRIGHT + Fore.GREEN, fail_color=Style.BRIGHT + Fore.RED, reset_color=Style.RESET_ALL, width=10):
-    pct = -value / max_value
+    pct = value / max_value
 
     color = ok_color if abs(value) <= abs(max_value) else fail_color
     return "|%s%10s%s|%s%10s%s|%s%-10s%s|%s%-10s%s|" % (
@@ -48,7 +48,7 @@ def error_bar(value, max_value, ok_color=Style.BRIGHT + Fore.GREEN, fail_color=S
 for i, ref in enumerate(zip(refs, comp)):
     ref_year, ref_val = ref[0]
     cmp_year, cmp_val = ref[1]
-    diff = ref_val - cmp_val
+    diff = cmp_val - ref_val
     if ref_year != cmp_year:
         wrong_years += 1
     err = diff / (ref_val or 1) * 100.0
@@ -62,7 +62,7 @@ for i, ref in enumerate(zip(refs, comp)):
             cmp_val,
             ref_val,
             diff,
-            color_result("%8.3f%%" % -(err / max_err_level * 100.0), abs(err) < max_err_level),
+            color_result("%8.3f%%" % (err / max_err_level * 100.0), abs(err) < max_err_level),
             bar
         )
     )
