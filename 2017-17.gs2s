@@ -3,9 +3,9 @@
 ##   - Christian Iversen <ci@iversenit.dk>
 
 16 71 crange
-empty-list  7900 + 13 *
-empty-list 16800 +  6 * +
-empty-list 17800 + 36 * + 
+79 itemize 13 *
+168 itemize  6 * +
+178 itemize 36 * +
 zip
 
 m:
@@ -14,7 +14,7 @@ m:
   show
   9
   push-b show
-  push-b @5 last +
+  push-b @5 last 100 * +
   dup 118 / +
   pop-b
   new-line
