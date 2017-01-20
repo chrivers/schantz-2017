@@ -1,0 +1,28 @@
+## Schantz New Year's Coding Challenge 2017
+## GolfScript2 version
+##   - Christian Iversen <ci@iversenit.dk>
+16 71 crange
+
+m:
+  1000 double + show
+  9
+  push-b show
+  new-line
+
+    # ycmp1 = int(Y > 34)
+    @2 34 gt pop-c
+
+    # ycmp2 = int(Y > 28)
+    @1 28 gt pop-d
+
+    # 1000 * (ycmp2 + ycmp1)
+    push-c push-d + 1000 *
+
+    push-b +
+
+    # X += A + 7900 * (ycmp2 + 1)
+    push-d inc 7900 * +
+
+    # x += x / 118
+    dup 118 / +
+    pop-b

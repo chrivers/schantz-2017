@@ -19,6 +19,8 @@ F.class:
 	@mcs 2017-07.cs
 2017-09.gs2: 2017-09.gs2s
 	@cd ./gs2 && ./gs2c.py < ../2017-09.gs2s > ../2017-09.gs2
+2017-16.gs2: 2017-16.gs2s
+	@cd ./gs2 && ./gs2c.py < ../2017-16.gs2s > ../2017-16.gs2
 
 compile01: A.class
 compile02: B.class
@@ -35,7 +37,8 @@ compile12:
 compile13:
 compile14:
 compile15:
-compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15
+compile16: 2017-16.gs2
+compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -67,7 +70,9 @@ run14: compile14
 	@groovy ./2017-14.groovy > 2017-14.txt
 run15: compile15
 	@groovy ./2017-15.groovy > 2017-15.txt
-run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15
+run16: compile16
+	@cd gs2 && ./gs2.py ../2017-16.gs2 > ../2017-16.txt
+run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16
 
 comp01:
 	@./comp.py 2017-01.txt
@@ -99,7 +104,9 @@ comp14:
 	@./comp.py 2017-14.txt
 comp15:
 	@./comp.py 2017-15.txt
-comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15
+comp16:
+	@./comp.py 2017-16.txt
+comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16
 
 size01:
 	@./size.py 2017-01.java
@@ -131,7 +138,9 @@ size14:
 	@./size.py 2017-14.groovy
 size15:
 	@./size.py 2017-15.groovy
-size: compile09
+size16:
+	@./size.py 2017-16.gs2
+size: compile09 compile16
 	@./size.py 2017-*.(java|cs|gs2|py|groovy)
 
 check01: compile01 run01 comp01 size01
@@ -149,3 +158,4 @@ check12: compile12 run12 comp12 size12
 check13: compile13 run13 comp13 size13
 check14: compile14 run14 comp14 size14
 check15: compile15 run15 comp15 size15
+check16: compile16 run16 comp16 size16
