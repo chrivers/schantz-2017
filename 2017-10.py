@@ -5,6 +5,10 @@ def log(x, *args):
     sys.stderr.write(x % args)
     sys.stderr.write("\n")
 
+#  7893 -  7907
+# 16766 - 16835
+# 17773 - 17822
+
 D = [(13, 7900), (6, 16800), (36, 17800)]
 
 Y = 2016
