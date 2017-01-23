@@ -1,4 +1,3 @@
-int X, Y;
-foreach (var c in "ἢ䉃䘩")
-    for (;c % 16 * 6 >= Y; X += c + X/118)
-        print($"20{Y+++16}	{X}")
+int X,Y;
+for (; Y++ < 55; X += "Ἕ䈯䘐"[Y>13?Y>19?2:1:0] + X/118)
+    print(2015+Y+"	"+X)
