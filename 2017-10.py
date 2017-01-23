@@ -5,12 +5,13 @@ def log(x, *args):
     sys.stderr.write(x % args)
     sys.stderr.write("\n")
 
+D = [(13, 7900), (6, 16800), (36, 17800)]
+
+Y = 2016
 X = 0
-for Y in range(16, 71):
-    print "20%d\t%s" % (Y, X)
-    c = cmp((Y - 29) / 6, 0) + 1
-    A = 1000 * c
-    log("%4d: c %d | A %4d", Y + 2000, c, A)
-    X += A
-    X += 7900 * (cmp(c, 0)+1)
-    X += X / 118
+for c, v in D:
+    for _ in range(c):
+        print "%d\t%s" % (Y, X)
+        Y += 1
+        X += v
+        X += X / 118
