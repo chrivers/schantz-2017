@@ -20,10 +20,13 @@ else:
 for filename in filenames:
     text = open(filename,errors='surrogateescape').read()
     extension = filename.split(".")[-1]
-    if extension in ("cs", "java", "groovy"):
+    if extension in ("cs", "java", "groovy", "rs"):
         text = text.strip()
         text2 = strip_whitespace(text)
         mindesc = "%6d characters (minified)" % len(minify.minify(text))
+    elif extension in ("py", ):
+        text2 = text
+        mindesc = "%6d chars (raw text)" % len(text)
     else:
         text2 = text
         mindesc = "%6d bytes (binary)" % len(text)
