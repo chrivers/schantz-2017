@@ -1,7 +1,7 @@
 SHELL=zsh
 
 clean:
-	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__ 2017-*.txt(N)
+	@rm -frv *.class(N) *~(N) *.exe(N) __pycache__ 2017-*.txt(N) 2017-22
 
 A.class:
 	@javac 2017-01.java
@@ -23,6 +23,8 @@ F.class:
 	@cd ./gs2 && ./gs2c.py < ../2017-16.gs2s > ../2017-16.gs2
 2017-17.gs2: 2017-17.gs2s
 	@cd ./gs2 && ./gs2c.py < ../2017-17.gs2s > ../2017-17.gs2
+2017-22: 2017-22.rs
+	@rustc 2017-22.rs -o 2017-22
 
 compile01: A.class
 compile02: B.class
@@ -43,7 +45,11 @@ compile16: 2017-16.gs2
 compile17: 2017-17.gs2
 compile18:
 compile19:
-compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16 compile17 compile18 compile19
+compile20:
+compile21:
+compile22: 2017-22
+compile23:
+compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16 compile17 compile18 compile19 compile20 compile21 compile22 compile23
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -83,7 +89,15 @@ run18: compile18
 	@bsh ./2017-18.java > 2017-18.txt
 run19: compile19
 	@csharp ./2017-19.cs > 2017-19.txt
-run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16 run17 run18 run19
+run20: compile20
+	@./jayshell.sh ./2017-20.jshell > 2017-20.txt
+run21: compile21
+	@python3 2017-21.py > 2017-21.txt
+run22: compile22
+	@./2017-22 > 2017-22.txt
+run23: compile23
+	@./jayshell.sh ./2017-23.jshell > 2017-23.txt
+run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16 run17 run18 run19 run20 run21 run22 run23
 
 comp01:
 	@./comp.py 2017-01.txt
@@ -123,7 +137,15 @@ comp18:
 	@./comp.py 2017-18.txt
 comp19:
 	@./comp.py 2017-19.txt
-comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16 comp17 comp18 comp19
+comp20:
+	@./comp.py 2017-20.txt
+comp21:
+	@./comp.py 2017-21.txt
+comp22:
+	@./comp.py 2017-22.txt
+comp23:
+	@./comp.py 2017-23.txt
+comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16 comp17 comp18 comp19 comp20 comp21 comp22 comp23
 
 size01:
 	@./size.py 2017-01.java
@@ -163,6 +185,14 @@ size18:
 	@./size.py 2017-18.java
 size19:
 	@./size.py 2017-19.cs
+size20:
+	@./size.py 2017-20.jshell
+size21:
+	@./size.py 2017-21.py
+size22:
+	@./size.py 2017-22.rs
+size23:
+	@./size.py 2017-23.jshell
 size: compile09 compile16 compile17
 	@./size.py 2017-*.(java|cs|gs2|py|groovy|jshell)
 
@@ -185,3 +215,7 @@ check16: compile16 run16 comp16 size16
 check17: compile17 run17 comp17 size17
 check18: compile18 run18 comp18 size18
 check19: compile19 run19 comp19 size19
+check20: compile20 run20 comp20 size20
+check21: compile21 run21 comp21 size21
+check22: compile22 run22 comp22 size22
+check23: compile23 run23 comp23 size23
