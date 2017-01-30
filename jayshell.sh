@@ -6,7 +6,11 @@
 ## same semantics, but about 98% faster.
 
 NAME=javatmp_$$
-printf "interface $NAME { static void printf(String format, Object... args) { System.out.printf(format, args); }; static void main(String[]a) { %s } }" "$(<$1)" > $NAME.java
+printf "interface $NAME {
+  static void printf(String format, Object... args) { System.out.printf(format, args); };
+  static void println(String s) { System.out.println(s); }
+  static void main(String[]a) { %s }
+}" "$(<$1)" > $NAME.java
 
 javac $NAME.java
 java $NAME
