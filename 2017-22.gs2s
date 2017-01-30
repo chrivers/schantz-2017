@@ -1,0 +1,25 @@
+## Schantz New Year's Coding Challenge 2017
+## GolfScript2 version
+##   - Christian Iversen <ci@iversenit.dk>
+
+#3 "\xe1\xbc\xa0\xe4\x88\xaf\xe4\x98\x90" chunks
+
+#debug
+
+7965 16943 17936 3 make-array pop-a
+
+55 range
+
+m:
+  2016 + show
+  9
+  push-b show
+  new-line
+
+  @2 12 gt
+  @0 18 gt +
+  push-a get
+
+  push-b +
+  push-b 118 / +
+  pop-b
