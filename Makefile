@@ -164,7 +164,7 @@ size18:
 size19:
 	@./size.py 2017-19.cs
 size: compile09 compile16 compile17
-	@./size.py 2017-*.(java|cs|gs2|py|groovy)
+	@./size.py 2017-*.(java|cs|gs2|py|groovy|jshell)
 
 check01: compile01 run01 comp01 size01
 check02: compile02 run02 comp02 size02
