@@ -20,7 +20,7 @@ else:
 for filename in filenames:
     text = open(filename,errors='surrogateescape').read()
     extension = filename.split(".")[-1]
-    if extension in ("cs", "java", "groovy", "rs"):
+    if extension in ("cs", "java", "jshell", "groovy", "rs"):
         text = text.strip()
         text2 = strip_whitespace(text)
         mindesc = "%6d characters (minified)" % len(minify.minify(text))
