@@ -25,6 +25,8 @@ F.class:
 	@cd ./gs2 && ./gs2c.py < ../2017-17.gs2s > ../2017-17.gs2
 2017-22: 2017-22.rs
 	@rustc 2017-22.rs -o 2017-22
+2017-25.gs2: 2017-25.gs2s
+	@cd ./gs2 && ./gs2c.py < ../2017-25.gs2s > ../2017-25.gs2
 
 compile01: A.class
 compile02: B.class
@@ -50,7 +52,8 @@ compile21:
 compile22: 2017-22
 compile23:
 compile24:
-compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16 compile17 compile18 compile19 compile20 compile21 compile22 compile23 compile24
+compile25: 2017-25.gs2
+compile: compile01 compile02 compile03 compile04 compile05 compile06 compile07 compile08 compile09 compile10 compile11 compile12 compile13 compile14 compile15 compile16 compile17 compile18 compile19 compile20 compile21 compile22 compile23 compile24 compile25
 
 run01: compile01
 	@java A > 2017-01.txt
@@ -100,7 +103,9 @@ run23: compile23
 	@./jayshell.sh ./2017-23.jshell > 2017-23.txt
 run24: compile24
 	@python 2017-24.py > 2017-24.txt
-run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16 run17 run18 run19 run20 run21 run22 run23 run24
+run25: compile25
+	@cd gs2 && ./gs2.py ../2017-25.gs2 > ../2017-25.txt
+run: run01 run02 run03 run04 run05 run06 run07 run08 run09 run10 run11 run12 run13 run14 run15 run16 run17 run18 run19 run20 run21 run22 run23 run24 run25
 
 comp01:
 	@./comp.py 2017-01.txt
@@ -150,7 +155,9 @@ comp23:
 	@./comp.py 2017-23.txt
 comp24:
 	@./comp.py 2017-24.txt
-comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16 comp17 comp18 comp19 comp20 comp21 comp22 comp23 comp24
+comp25:
+	@./comp.py 2017-25.txt
+comp: comp01 comp02 comp03 comp04 comp05 comp06 comp07 comp08 comp09 comp10 comp11 comp12 comp13 comp14 comp15 comp16 comp17 comp18 comp19 comp20 comp21 comp22 comp23 comp24 comp25
 
 size01:
 	@./size.py 2017-01.java
@@ -200,7 +207,9 @@ size23:
 	@./size.py 2017-23.jshell
 size24:
 	@./size.py 2017-24.py
-size: compile09 compile16 compile17
+size25:
+	@./size.py 2017-25.gs2
+size: compile09 compile16 compile17 compile25
 	@./size.py 2017-*.(java|cs|gs2|py|groovy|jshell)
 
 check01: compile01 run01 comp01 size01
@@ -227,3 +236,4 @@ check21: compile21 run21 comp21 size21
 check22: compile22 run22 comp22 size22
 check23: compile23 run23 comp23 size23
 check24: compile24 run24 comp24 size24
+check25: compile25 run25 comp25 size25
