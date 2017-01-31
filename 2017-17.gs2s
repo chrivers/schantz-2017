@@ -2,8 +2,7 @@
 ## GolfScript2 version
 ##   - Christian Iversen <ci@iversenit.dk>
 
-"\x4f\xa8\xb2"
-"\x1a\x0c\x48" half m1
+"\x4f\xa8\xb2\x07\x1a\x0c\x48" half m1
 compress
 
 m:
