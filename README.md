@@ -23,5 +23,5 @@ There are 2 categories:
 Ok, ok. I get it, you want to cut to the chase. The 2 winning entries are:
 
  - Category 1: [2017-19.cs](2017-19.cs) (66 characeters)
- - Category 2: [2017-17.gs2](2017-17.gs2) ([gs2 assembly source](2017-17.gs2s)) (66 characeters)
+ - Category 2: [2017-17.gs2s](2017-17.gs2s) (assembles to `2017-17.gs2`) (33 characeters)
 
