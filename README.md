@@ -54,3 +54,12 @@ Type `make size` to see an overview of all sizes, like so:
 ```
 
 Type `make checkXX` to see the size of a specific entry.
+
+## I demand an explanation
+
+Sorry Mario, but the explanation is in another castle!
+
+.. check back later for more details!
+
+(if you are really interested, the git commit messages should be quite
+descriptive!)
