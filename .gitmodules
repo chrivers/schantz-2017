@@ -1,6 +1,6 @@
 [submodule "gs2"]
 	path = gs2
-	url = https://github.com/nooodl/gs2.git
+	url = https://github.com/chrivers/gs2.git
 [submodule "tools"]
 	path = tools
 	url = git@github.com:chrivers/SchantzNewYearsCodingChallenge2017.git
