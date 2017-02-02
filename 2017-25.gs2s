@@ -6,7 +6,8 @@
 
 #debug
 
-7965 16943 17936 3 make-array pop-a
+#7965 16943 17936 3 make-array pop-a
+"\x4f\xa9\xb3" pop-a
 
 55 range
 
@@ -19,6 +20,7 @@ m:
   @2 12 gt
   @0 18 gt +
   push-a get
+  100 *
 
   push-b +
   push-b 118 / +
