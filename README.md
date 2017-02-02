@@ -23,7 +23,12 @@ There are 2 categories:
 Ok, ok. I get it, you want to cut to the chase. The 2 winning entries are:
 
  - Category 1: [2017-19.cs](2017-19.cs) (66 characeters)
+
+![2017-19.cs text](2017-19.png)
+
  - Category 2: [2017-17.gs2s](2017-17.gs2s) (assembles to `2017-17.gs2`) (33 characeters)
+
+![2017-17.gs2s text](2017-17.png)
 
 ## Tools of the trade
 
