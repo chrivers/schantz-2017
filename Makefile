@@ -15,7 +15,7 @@ E.class:
 	@javac 2017-05.java
 F.class:
 	@javac 2017-06.java
-2017-07.exe:
+2017-07.exe: 2017-07.cs
 	@mcs 2017-07.cs
 2017-09.gs2: 2017-09.gs2s
 	@cd ./gs2 && ./gs2c.py < ../2017-09.gs2s > ../2017-09.gs2
