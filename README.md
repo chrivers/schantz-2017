@@ -30,6 +30,16 @@ Ok, ok. I get it, you want to cut to the chase. The 2 winning entries are:
 
 ![2017-17.gs2s text](2017-17.png)
 
+## I demand an explanation!
+
+You're in luck! My [presentation from the prize
+ceremony](https://chrivers.github.io/schantz-2017-presentation/index.html)
+is online! Just press "f" for full screen, and Space for next
+slide.
+
+And the source code for the presentation is [also on
+github](https://github.com/chrivers/schantz-2017-presentation).
+
 ## Tools of the trade
 
 ### Checking
@@ -59,12 +69,3 @@ Type `make size` to see an overview of all sizes, like so:
 ```
 
 Type `make checkXX` to see the size of a specific entry.
-
-## I demand an explanation
-
-Sorry Mario, but the explanation is in another castle!
-
-.. check back later for more details!
-
-(if you are really interested, the git commit messages should be quite
-descriptive!)
